@@ -1,6 +1,6 @@
 {
   "name": "fundation-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Alexander Chan <fundation@nonstopcoder.com>",
   "description": "Fundation plugin framework",
   "license": "MIT",

@@ -1,18 +1,19 @@
 const path = require('path');
 const glob = require('glob');
 
-// Get the Plugin's root directory
-const pluginPath = path.dirname(module.parent.id);
+// This module will expose all of the plugin's files
+module.exports = function(parent) {
+  // Get the Plugin's root directory
+  let pluginPath = path.dirname(parent.id);
 
-// Object to send back to fundation
-let plugin = {
-	name: path.basename(pluginPath)
-};
+  // Object to send back to fundation
+  let plugin = {
+    name: path.basename(pluginPath),
+    path: pluginPath,
+    controllers: glob.sync(pluginPath + '/controllers/*.js'),
+    views: pluginPath + '/views',
+    ui: pluginPath + '/ui'
+  };
 
-// See if there are any controllers
-let controllers = glob.sync(pluginPath + "/controllers/*.js");
-if ( controllers ) {
-	plugin.controllers = controllers;
+  return plugin;
 }
-
-module.exports = plugin;
