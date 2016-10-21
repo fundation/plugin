@@ -11,8 +11,9 @@ module.exports = function(parent) {
     name: path.basename(pluginPath),
     path: pluginPath,
     controllers: glob.sync(pluginPath + '/controllers/*.js'),
+    models: glob.sync(pluginPath + '/models/*.js'),
     views: pluginPath + '/views',
-    ui: pluginPath + '/ui'
+    public: pluginPath + '/public'
   };
 
   return plugin;
