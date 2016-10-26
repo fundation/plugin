@@ -12,6 +12,8 @@ module.exports = function(parent) {
     path: pluginPath,
     controllers: glob.sync(pluginPath + '/controllers/*.js'),
     models: glob.sync(pluginPath + '/models/*.js'),
+    middleware: glob.sync(pluginPath + '/middleware/*.js'),
+    preload: glob.sync(pluginPath + '/preload/*.js'),
     views: pluginPath + '/views',
     public: pluginPath + '/public'
   };
